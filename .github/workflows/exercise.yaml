@@ -34,6 +34,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build and Run
-        cl /W3 /GF /GA /nologo /O2 /Os /Gs /c /Fomain.o main.c
-        link /out:main.exe /nologo main.o
-        main.exe
+        run: |
+          cl /W3 /GF /GA /nologo /O2 /Os /Gs /c /Fomain.o main.c
+          link /out:main.exe /nologo main.o
+          main.exe
