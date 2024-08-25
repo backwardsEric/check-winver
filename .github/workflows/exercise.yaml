@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Install Build Dependencies
         run: |
+          sudo apt-get update
+          sudo apt-get install dpkg
           sudo dkpg --add-architecture i386
           sudo apt-get update
           sudo apt-get install gcc-mingw-w64 wine wine32
