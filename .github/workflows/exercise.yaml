@@ -12,7 +12,7 @@ jobs:
       - name: Install Build Dependencies
         run: |
           sudo apt-get update
-          sudo apt-get gcc-mingw-w64 wine
+          sudo apt-get install gcc-mingw-w64 wine
 
       - name: Clone Project
         uses: actions/checkout@v4
@@ -37,4 +37,4 @@ jobs:
         run: |
           cl /W3 /GF /GA /nologo /O2 /Os /Gs /c /Fomain.o main.c
           link /out:main.exe /nologo main.o
-          main.exe
+          .\main.exe
