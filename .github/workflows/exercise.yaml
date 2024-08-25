@@ -3,7 +3,7 @@ name: Exercise
 on:
   push:
     branches: [ master ]
-  pull-request:
+  pull_request:
 
 jobs:
   linux-cross-i686:
