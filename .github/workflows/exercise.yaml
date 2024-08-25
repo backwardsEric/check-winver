@@ -1,0 +1,39 @@
+name: Exercise
+
+on:
+  push:
+    branches: [ master ]
+  pull-request:
+
+jobs:
+  linux-cross-i686:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Build Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get gcc-mingw-w64 wine
+
+      - name: Clone Project
+        uses: actions/checkout@v4
+
+      - name: Build and Run
+        run: |
+          i686-w64-mingw32-gcc -Wall -O -o main main.c
+          wine main
+
+  msvc:
+    runs-on: windows-latest
+    steps:
+      - name: Add compiler to PATH
+        uses: TheMrMilchmann/setup-msvc-dev@v3
+        with:
+          arch: x86
+
+      - name: Clone Project
+        uses: actions/checkout@v4
+
+      - name: Build and Run
+        cl /W3 /GF /GA /nologo /O2 /Os /Gs /c /Fomain.o main.c
+        link /out:main.exe /nologo main.o
+        main.exe
