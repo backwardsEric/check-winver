@@ -2,10 +2,10 @@
 #define WIN32_CONSOLE_MODE
 #endif
 #ifndef WINVER
-#define WINVER (0x0500)
+#define WINVER 0x0500
 #elif WINVER < 0x0500
 #undef WINVER
-#define WINVER (0x0500)
+#define WINVER 0x0500
 #endif
 #include <windows.h>
 #include <stdio.h>
