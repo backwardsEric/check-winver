@@ -12,7 +12,7 @@
 
 int main(int argc, char *argv[])
 {
-	(void)printf("WINVER is %lx\n", (unsigned long)WINVER);
-	(void)printf("_WIN32_WINNT is %lx\n", (unsigned long)_WIN32_WINNT);
+	(void)printf("WINVER is 0x%lx\n", (unsigned long)WINVER);
+	(void)printf("_WIN32_WINNT is 0x%lx\n", (unsigned long)_WIN32_WINNT);
 	return 0;
 }
