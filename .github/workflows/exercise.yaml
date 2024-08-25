@@ -11,16 +11,17 @@ jobs:
     steps:
       - name: Install Build Dependencies
         run: |
+          sudo dkpg --add-architecture i386
           sudo apt-get update
-          sudo apt-get install gcc-mingw-w64 wine
+          sudo apt-get install gcc-mingw-w64 wine wine32
 
       - name: Clone Project
         uses: actions/checkout@v4
 
       - name: Build and Run
         run: |
-          i686-w64-mingw32-gcc -Wall -O -o main main.c
-          wine main
+          i686-w64-mingw32-gcc -Wall -O -o main.exe main.c
+          wine main.exe
 
   msvc:
     runs-on: windows-latest
